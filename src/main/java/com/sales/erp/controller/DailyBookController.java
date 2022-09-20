@@ -18,6 +18,9 @@ import com.sales.erp.exception.ResourceNotFoundException;
 import com.sales.erp.repository.DailyBookRepository;
 import com.sales.erp.service.DailyBookService;
 
+/**
+ * @author Induja
+ */
 @RestController
 @CrossOrigin("*")
 public class DailyBookController {
