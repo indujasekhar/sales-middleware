@@ -12,13 +12,13 @@ public class Particular {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int particular_id;
-	private String particular_name;
+	private int particularId;
+	private String particularName;
 	private String description;
 	
-	public Particular(int particular_id, String particular_name, String description) {
-		this.particular_id = particular_id;
-		this.particular_name = particular_name;
+	public Particular(int particularId, String particularName, String description) {
+		this.particularId = particularId;
+		this.particularName = particularName;
 		this.description = description;
 	}
 
@@ -26,20 +26,20 @@ public class Particular {
 		
 	}
 
-	public int getParticular_id() {
-		return particular_id;
+	public int getParticularId() {
+		return particularId;
 	}
 
-	public void setParticular_id(int particular_id) {
-		this.particular_id = particular_id;
-	}
-	
-	public String getParticular_name() {
-		return particular_name;
+	public void setParticularId(int particularId) {
+		this.particularId = particularId;
 	}
 
-	public void setParticular_name(String particular_name) {
-		this.particular_name = particular_name;
+	public String getParticularName() {
+		return particularName;
+	}
+
+	public void setParticularName(String particularName) {
+		this.particularName = particularName;
 	}
 
 	public String getDescription() {
