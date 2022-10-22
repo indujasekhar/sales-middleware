@@ -23,6 +23,7 @@ public class DailyBookDAOImpl implements DailyBookDAO {
 	@Override
 	public List<DailyBook> getAllDailyBooks() {
 		return (List<DailyBook>) dailyBookRepo.findAll();
+		//return (List<DailyBook>) dailyBookRepo.fetchAllDailyBooks();
 	}
 
 	@Override

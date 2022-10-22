@@ -24,7 +24,9 @@ public class UserTypeController {
 	@PostMapping("/userType")
 	public void createUserType(@RequestBody UserType userType) {
 		userType.setModifiedDate(Date.valueOf(LocalDate.now()));
-		userTypeRepo.save(userType);
+		if(null != userType.getTypeName() && userType.getTypeName().length() > 0) {
+			userTypeRepo.save(userType);
+		}
 	}
 	
 	@GetMapping("/userType")
