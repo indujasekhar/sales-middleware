@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sales.erp.entity.DailyBook;
+import com.sales.erp.entity.DailyBookView;
 import com.sales.erp.exception.ResourceNotFoundException;
 import com.sales.erp.repository.DailyBookRepository;
+import com.sales.erp.repository.DailyBookViewRepository;
 import com.sales.erp.service.DailyBookService;
 
 /**
@@ -31,6 +33,9 @@ public class DailyBookController {
 	@Autowired
 	DailyBookRepository dailyBookRepo;
 	
+	@Autowired
+	DailyBookViewRepository dailyBookViewRepo;
+	
 	@RequestMapping(value = "/dailyBook", method = RequestMethod.POST)
 	public void createDailyBook(@RequestBody DailyBook dailyBook) {
 		dailyBook.setDailyBookDate(Date.valueOf(LocalDate.now()));
@@ -38,9 +43,14 @@ public class DailyBookController {
 		dailyBookService.createUser(dailyBook);
 	}
 	
-	@RequestMapping(value = "/dailyBooks", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/dailyBooks", method = RequestMethod.GET)
 	public List<DailyBook> getAllDailyBooks() {
 		return dailyBookService.getAllDailyBooks();
+	}*/
+	
+	@RequestMapping(value = "/dailyBooks", method = RequestMethod.GET)
+	public List<DailyBookView> getAllDailyBooks() {
+		return dailyBookViewRepo.findAll();
 	}
 	
 	@RequestMapping(value = "/dailyBook/{id}", method = RequestMethod.GET)
