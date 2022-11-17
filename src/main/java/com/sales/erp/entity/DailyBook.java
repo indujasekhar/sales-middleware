@@ -12,6 +12,8 @@ import javax.persistence.Table;
 @Table(name = "Daily_Book")
 public class DailyBook {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int dailyBookId;
 	private Date modifiedDate;
 	private int particularId;

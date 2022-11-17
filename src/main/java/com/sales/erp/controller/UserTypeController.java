@@ -6,7 +6,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,5 +34,15 @@ public class UserTypeController {
 	@GetMapping("/userType")
 	public List<UserType> getAllUserTypes() {
 		return userTypeRepo.findAll();
+	}
+	
+	@GetMapping("/userType/{id}")
+	public UserType getUserTypeById(@PathVariable("id") int id) {
+		return userTypeRepo.findById(id).get();
+	}
+	
+	@DeleteMapping("/userType/{id}")
+	public void deleteUserType(@PathVariable("id") int id) {
+		userTypeRepo.deleteById(id);
 	}
 }
